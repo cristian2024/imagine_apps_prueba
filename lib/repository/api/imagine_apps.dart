@@ -19,10 +19,6 @@ class ImagineApi {
           imagines.add(imagine);
           yield imagines;
         } catch (e) {}
-
-        await Future.delayed(
-          const Duration(seconds: 5),
-        );
       }
     }
   }
