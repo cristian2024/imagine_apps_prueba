@@ -31,6 +31,5 @@ class ImagineModel {
     volumen = int.parse(map['Volumen'].toString());
     hora = map['Hora'].toString();
     grafico = map['Gráfico'] != null ? map['Gráfico'].toString() : '';
-    ;
   }
 }
