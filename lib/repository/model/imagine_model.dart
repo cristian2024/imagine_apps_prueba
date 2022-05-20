@@ -23,12 +23,12 @@ class ImagineModel {
 
   ImagineModel.fromMap(Map<String, dynamic> map) {
     mes = map['Mes'] != null ? map['Mes'].toString() : '';
-    ultimo = int.tryParse(map['Último']) ?? 0;
+    ultimo = int.parse(map['Último'].toString().replaceAll('s', ''));
     variabilidad = map['Var.'].toDouble();
-    apertura = int.tryParse(map['Apertura'].toString()) ?? 0;
-    maximo = int.tryParse(map['Máximo'].toString()) ?? 0;
-    minimo = int.tryParse(map['Mínimo'].toString()) ?? 0;
-    volumen = int.tryParse(map['Volumen'].toString()) ?? 0;
+    apertura = int.parse(map['Apertura'].toString());
+    maximo = int.parse(map['Máximo'].toString());
+    minimo = int.parse(map['Mínimo'].toString());
+    volumen = int.parse(map['Volumen'].toString());
     hora = map['Hora'].toString();
     grafico = map['Gráfico'] != null ? map['Gráfico'].toString() : '';
     ;

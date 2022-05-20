@@ -13,15 +13,16 @@ class ImagineApi {
     if (response.statusCode == 200) {
       var jsonResponse =
           convert.jsonDecode(response.body) as Map<String, dynamic>;
-
       for (String json in jsonResponse.keys) {
-        // print(ImagineModel.fromMap(jsonResponse[json]));
+        try {
+          ImagineModel imagine = ImagineModel.fromMap(jsonResponse[json]);
+          imagines.add(imagine);
+          yield imagines;
+        } catch (e) {}
 
-        imagines.add(ImagineModel.fromMap(jsonResponse[json]));
-
-        // print(imagines);
-        // print(json);
-        yield imagines;
+        await Future.delayed(
+          const Duration(seconds: 5),
+        );
       }
     }
   }
