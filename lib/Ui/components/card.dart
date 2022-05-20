@@ -18,64 +18,62 @@ class Cards extends StatelessWidget {
         horizontal: 50,
         vertical: 20,
       ),
-      child: SizedBox(
-        child: ListView.builder(
-          itemCount: imagines != null ? imagines!.length : 0,
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          // physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return DialogImagine(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Gráfico : ${imagines![index].grafico}",
-                          ),
-                          Text(
-                            "Estipulado el ${imagines![index].mes} a las  ${imagines![index].hora}",
-                          ),
-                          Text(
-                            "Variabilidad : ${imagines![index].variabilidad.toString()}",
-                          ),
-                          Text(
-                            "Volumen : ${imagines![index].volumen.toString()}",
-                          ),
-                          Indicator(
-                            title: 'Apertura',
-                            value: imagines![index].apertura /
-                                imagines![index].maximo,
-                          ),
-                          Indicator(
-                            title: 'Maximo',
-                            value: imagines![index].maximo /
-                                imagines![index].maximo,
-                          ),
-                          Indicator(
-                            title: "Minimo",
-                            value: imagines![index].minimo /
-                                imagines![index].maximo,
-                          ),
-                          Indicator(
-                            title: "Ultimo",
-                            value: imagines![index].ultimo /
-                                imagines![index].maximo,
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              },
-              child: Card(imagine: imagines![index]),
-            );
-          },
-        ),
+      child: ListView.builder(
+        itemCount: imagines != null ? imagines!.length : 0,
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        // physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return DialogImagine(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Gráfico : ${imagines![index].grafico}",
+                        ),
+                        Text(
+                          "Estipulado el ${imagines![index].mes} a las  ${imagines![index].hora}",
+                        ),
+                        Text(
+                          "Variabilidad : ${imagines![index].variabilidad.toString()}",
+                        ),
+                        Text(
+                          "Volumen : ${imagines![index].volumen.toString()}",
+                        ),
+                        Indicator(
+                          title: 'Apertura',
+                          value: imagines![index].apertura /
+                              imagines![index].maximo,
+                        ),
+                        Indicator(
+                          title: 'Maximo',
+                          value:
+                              imagines![index].maximo / imagines![index].maximo,
+                        ),
+                        Indicator(
+                          title: "Minimo",
+                          value:
+                              imagines![index].minimo / imagines![index].maximo,
+                        ),
+                        Indicator(
+                          title: "Ultimo",
+                          value:
+                              imagines![index].ultimo / imagines![index].maximo,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+            child: Card(imagine: imagines![index]),
+          );
+        },
       ),
     );
   }
@@ -101,6 +99,7 @@ class Card extends StatelessWidget {
       padding: const EdgeInsets.all(30),
       child: Text(
         "Estipulado el ${imagine.mes} a las  ${imagine.hora}",
+        textAlign: TextAlign.center,
       ),
     );
   }
